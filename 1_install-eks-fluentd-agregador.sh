@@ -1,3 +1,3 @@
-#!/bin/bash 
+#!/bin/bash
 kubectl create namespace logging
-kubectl create -f 1_deploy-fluentd-agregador.yaml
+helm install  fluentd-agregador stable/fluentd --namespace logging
