@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluentd-agregador
+  namespace: logging
+  labels:
+    app: fluentd-agregador
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluentd-agregador
+  template:
+    metadata:
+      labels:
+        app: fluentd-agregador
+    spec:
+      containers:
+        - name: fluentd-agregador
+          image: ubuntu:18.04
+          resources:
+            limits:
+              cpu: 100m
+              memory: 250Mi
+            requests:
+              cpu: 10m
+              memory: 125Mi
